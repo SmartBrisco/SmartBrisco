@@ -33,3 +33,9 @@ Full-stack observability platform deployed on Kubernetes. OpenTelemetry Collecto
 
 `OpenTelemetry` `Jaeger` `Prometheus` `Grafana` `Kubernetes` `OTLP`
 
+---
+
+### 🚀 [Platform](https://github.com/SmartBrisco/Platform)
+One command to spin up the full platform locally in under 10 minutes. Clones all three repos, creates the cluster, deploys the pipeline and observability stack, and fires a test webhook.
+
+`Argo Events` `Argo Workflows` `Grafana` `Jaeger` `kind` `Kubernetes` `Make` `Ollama` `OpenTelemetry` `OTLP` `Prometheus`  `Python` `Terraform` `TFLint` `Trivy` 
