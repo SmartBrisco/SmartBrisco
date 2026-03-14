@@ -10,7 +10,7 @@ that others can too.
 
 ---
 ## Why I Built This
-These projects are rebuilt from production platform infrastructure for a multi-cloud data warehouse serving enterprise customers across AWS, GCP, and Azure. The patterns here (event-driven validation, OIDC-based credential elimination, end-to-end observability) came from real operational pain, including LLM-powered error summarization via Ollama and Slack webhook audit logging for faster incident resolution and root cause analysis.
+These projects are rebuilt from production platform infrastructure for a multi-cloud data warehouse serving enterprise customers across AWS, GCP, and Azure. The patterns here came from real operational pain. LLM-powered error summarization via Ollama and Slack webhook audit logging reduced incident resolution time and accelerated root cause analysis.
 
 ---
 
