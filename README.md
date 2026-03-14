@@ -9,6 +9,10 @@ I build things that run without me. Then I document them well enough
 that others can too.
 
 ---
+## Why I Built This
+These projects are rebuilt from production platform infrastructure for a multi-cloud data warehouse serving enterprise customers across AWS, GCP, and Azure. The patterns here (event-driven validation, OIDC-based credential elimination, end-to-end observability) came from real operational pain, including LLM-powered error summarization via Ollama and Slack webhook audit logging for faster incident resolution and root cause analysis.
+
+---
 
 ## Platform Engineering Portfolio
 
@@ -36,6 +40,6 @@ Full-stack observability platform deployed on Kubernetes. OpenTelemetry Collecto
 ---
 
 ### 🚀 [Platform](https://github.com/SmartBrisco/Platform)
-One command to spin up the full platform locally in under 10 minutes. Clones all three repos, creates the cluster, deploys the pipeline and observability stack, and fires a test webhook.
+One command to spin up the full platform locally in under 10 minutes. Clones all three repos, creates a local kind cluster, deploys the pipeline and observability stack, and fires a test webhook.
 
 `Argo Events` `Argo Workflows` `Grafana` `Jaeger` `kind` `Kubernetes` `Make` `Ollama` `OpenTelemetry` `OTLP` `Prometheus`  `Python` `Terraform` `TFLint` `Trivy` 
