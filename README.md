@@ -1,50 +1,74 @@
 # Hi, I'm Brian 👋
 
-Senior Platform Engineer with 11 years building the infrastructure and tooling that development teams depend on. Cloud agnostic Kubernetes platforms, event-driven CI/CD, GitOps automation, and observability stacks that give teams visibility into their systems.
+Senior Platform Engineer with 11 years building the infrastructure
+and tooling that development teams depend on. Cloud agnostic Kubernetes platforms,
+event-driven CI/CD, GitOps automation, and observability stacks that
+give teams visibility into their systems.
 
-I build things that run without me. Then I document them well enough that others can too.
-
----
-
-## Why I Built This
-
-These projects are rebuilt from production platform infrastructure for a multi-cloud data warehouse serving enterprise customers across AWS, GCP, and Azure. The patterns here came from real operational pain. LLM-powered error summarization via Ollama and Slack webhook audit logging reduced incident resolution time and accelerated root cause analysis.
+I build things that run without me. Then I document them well enough
+that others can too.
 
 ---
 
 ## Platform Engineering Portfolio
 
-Four connected projects demonstrating a complete internal developer platform, from event-driven pipelines to infrastructure automation to full-stack observability to policy-enforced namespace provisioning.
+Four connected projects forming a complete internal developer platform — event-driven
+CI/CD, multi-cloud infrastructure automation, full-stack observability, and a Go
+operator for policy-enforced namespace provisioning. Deployable as a single platform
+via `make platform-up`.
+
+![Platform Architecture](screenshots/platform-architecture.svg)
+
+---
 
 ### 🔧 [Argo Events CI/CD Pipeline](https://github.com/SmartBrisco/argo-event-pipeline)
-Event-driven CI/CD pipeline built on Kubernetes using Argo Events and Argo Workflows. Webhook triggers flow through a NATS event bus into a multi-step pipeline with Trivy security scanning, Jira-style ticket integration, and an AI-powered failure analysis layer using a locally hosted Ollama model.
+
+Event-driven CI/CD pipeline built on Kubernetes using Argo Events and Argo Workflows.
+Webhook triggers flow through a NATS event bus into a multi-step pipeline with Trivy
+security scanning, Jira-style ticket integration, and an AI-powered failure analysis
+layer using a locally hosted Ollama model. Emits OTLP telemetry to the observability
+stack.
 
 `Kubernetes` `Argo Events` `Argo Workflows` `NATS` `Trivy` `Ollama` `Python`
 
 ---
 
 ### ⚙️ [GitOps Infrastructure Pipeline](https://github.com/SmartBrisco/gitops-infra-pipeline)
-Multi-cloud Terraform pipeline with Kargo progressive delivery across AWS, GCP, and Azure. Features dev-to-prod promotion with OPA and Trivy security gates, manual approval enforcement via GitHub Environments, S3 remote state with DynamoDB locking, scoped IAM with no FullAccess policies, and OIDC authentication eliminating all long-lived credentials.
 
-`GitHub Actions` `Terraform` `Kargo` `AWS` `GCP` `Azure` `OPA` `Trivy` `TFLint` `OIDC` `Slack`
+GitHub Actions pipeline provisioning multi-cloud infrastructure via Terraform with
+Kargo progressive delivery. Features OIDC authentication, OPA policy gates, Trivy
+hard-fail on prod, manual approval gates, and three-channel Slack notifications.
+Fully active on AWS across dev and prod; GCP and Azure scaffolded and validated.
+
+`GitHub Actions` `Terraform` `Kargo` `AWS` `GCP` `Azure` `OPA` `OIDC` `Trivy`
 
 ---
 
 ### 📊 [Platform Observability Stack](https://github.com/SmartBrisco/platform-observability)
-Full-stack observability platform deployed on Kubernetes. OpenTelemetry Collector receives live telemetry from the Argo pipeline, routing traces to Jaeger and metrics to Prometheus, visualized in Grafana dashboards. Argo workflow execution data flows end to end through the stack.
+
+Full-stack observability platform deployed on Kubernetes. OpenTelemetry Collector
+receives live OTLP telemetry from the Argo pipeline, routing traces to Jaeger and
+metrics to Prometheus, visualized in Grafana. Isolated in a dedicated monitoring
+namespace with RBAC separation from pipeline infrastructure.
 
 `OpenTelemetry` `Jaeger` `Prometheus` `Grafana` `Kubernetes` `OTLP`
 
 ---
 
-### 🛠️ [Namespace Provisioner](https://github.com/SmartBrisco/namespace-provisioner)
-Kubernetes operator written in Go using Kubebuilder. Enforces consistent, policy-compliant namespace provisioning across clusters -- every environment gets the correct RBAC, resource quotas, and labels automatically. Drift correction built in: if a RoleBinding is manually deleted, the operator recreates it on the next reconciliation cycle.
+### 🔩 [Namespace Provisioner](https://github.com/SmartBrisco/namespace-provisioner)
 
-`Go` `Kubernetes` `Kubebuilder` `CRD` `RBAC` `Resource Quotas`
+Kubernetes operator in Go that enforces consistent, policy-compliant namespace
+provisioning across clusters. Declarative `ManagedNamespace` CRD automatically
+provisions namespaces with correct RBAC, resource quotas, and labels. Drift
+correction recreates manually deleted or modified resources on the next reconciliation
+cycle.
+
+`Go` `Kubernetes` `kubebuilder` `CRD` `RBAC` `Operator pattern`
 
 ---
 
-### 🚀 [Platform](https://github.com/SmartBrisco/Platform)
-One command to spin up the full platform locally. Clones all four repos, creates a local kind cluster, installs the namespace operator, deploys the pipeline and observability stack, and fires a test webhook end to end.
+### 🚀 [Platform Bootstrap](https://github.com/SmartBrisco/Platform)
 
-`Argo Events` `Argo Workflows` `Go` `Grafana` `Jaeger` `Kargo` `kind` `Kubernetes` `Make` `Ollama` `OpenTelemetry` `Prometheus` `Terraform` `Trivy`
+One command to spin up the full platform locally in under 10 minutes.
+
+`kind` `make` `kubectl`
