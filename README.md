@@ -67,8 +67,10 @@ cycle.
 
 ---
 
-### 🚀 [Platform Bootstrap](https://github.com/SmartBrisco/Platform)
+### 🚀 [Internal Developer Platform](https://github.com/SmartBrisco/Internal-Developer-Platform)
 
-One command to spin up the full platform locally in under 10 minutes.
+One command to spin up the full platform locally in under 5 minutes.
+
+![Platform up in 299s](screenshots/platform-up.png)
 
 `kind` `make` `kubectl`
