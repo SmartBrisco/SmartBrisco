@@ -1,8 +1,6 @@
 # Hi, I'm Brian 👋
 
-Senior Platform Engineer with 11 years building the infrastructure and tooling that development teams depend on. Cloud-agnostic Kubernetes platforms, event-driven CI/CD, GitOps automation, and observability stacks that give teams visibility into their systems.
-
-I build things that run without me. Then I document them well enough that others can too.
+9+ years building and owning multi-cloud platforms in HIPAA, SOX, and ISO-regulated environments. Operated as platform architect and senior escalation point across a globally distributed engineering organization spanning 25+ engineers, 4 teams, and 20+ clusters. Drove cross-team platform adoption, set infrastructure standards without formal authority, eliminating $180k in annual cloud waste in the process. Handpicked to integrate infrastructure across organizations during a major acquisition. Built systems that reduced provisioning from 6 hours to 30 minutes enabling engineering teams to ship faster without platform bottlenecks.
 
 ---
 
