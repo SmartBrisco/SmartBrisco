@@ -8,11 +8,14 @@
 
 Six connected projects demonstrating a complete internal developer platform — event-driven pipelines, infrastructure automation, full-stack observability, Kubernetes operators, ML workload delivery, and a single-command bootstrap that ties it all together.
 
+![Platform Architecture](screenshots/platform-architecture.svg)
+
 ---
 
 ### 🚀 [Internal Developer Platform](https://github.com/SmartBrisco/Internal-Developer-Platform) — Start Here
 
 One command spins up the entire platform locally in under 5 minutes.
+![Platform up in 299s](screenshots/platform-up.png)
 
 ```
 make platform-up
