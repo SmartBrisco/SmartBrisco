@@ -1,33 +1,35 @@
 # Hi, I'm Brian 👋
 
-Senior Platform Engineer with 11 years building the infrastructure
-and tooling that development teams depend on. Cloud agnostic Kubernetes platforms,
-event-driven CI/CD, GitOps automation, and observability stacks that
-give teams visibility into their systems.
-
-I build things that run without me. Then I document them well enough
-that others can too.
+9+ years building and owning multi-cloud platforms in HIPAA, SOX, and ISO-regulated environments. Operated as platform architect and senior escalation point across a globally distributed engineering organization spanning 25+ engineers, 4 teams, and 20+ clusters. Drove cross-team platform adoption, set infrastructure standards without formal authority, eliminating $180k in annual cloud waste in the process. Handpicked to integrate infrastructure across organizations during a major acquisition. Built systems that reduced provisioning from 6 hours to 30 minutes enabling engineering teams to ship faster without platform bottlenecks.
 
 ---
 
 ## Platform Engineering Portfolio
 
-Four connected projects forming a complete internal developer platform — event-driven
-CI/CD, multi-cloud infrastructure automation, full-stack observability, and a Go
-operator for policy-enforced namespace provisioning. Deployable as a single platform
-via `make platform-up`.
+Six connected projects demonstrating a complete internal developer platform — event-driven pipelines, infrastructure automation, full-stack observability, Kubernetes operators, ML workload delivery, and a single-command bootstrap that ties it all together.
 
 ![Platform Architecture](screenshots/platform-architecture.svg)
 
 ---
 
+### 🚀 [Internal Developer Platform](https://github.com/SmartBrisco/Internal-Developer-Platform) — Start Here
+
+One command spins up the entire platform locally in under 5 minutes.
+![Platform up in 299s](screenshots/platform-up.png)
+
+```
+make platform-up
+```
+
+Orchestrates all five projects below: creates the kind cluster, installs Argo Workflows and Argo Events, deploys the observability stack, installs the namespace operator, fires a test webhook, and confirms the pipeline runs end to end. The platform is designed to boot and operate without manual intervention.
+
+`Kubernetes` `kind` `Argo Workflows` `Argo Events` `Makefile` `Kargo`
+
+---
+
 ### 🔧 [Argo Events CI/CD Pipeline](https://github.com/SmartBrisco/argo-event-pipeline)
 
-Event-driven CI/CD pipeline built on Kubernetes using Argo Events and Argo Workflows.
-Webhook triggers flow through a NATS event bus into a multi-step pipeline with Trivy
-security scanning, Jira-style ticket integration, and an AI-powered failure analysis
-layer using a locally hosted Ollama model. Emits OTLP telemetry to the observability
-stack.
+Event-driven CI/CD pipeline built on Kubernetes using Argo Events and Argo Workflows. Webhook triggers flow through a NATS event bus into a multi-step pipeline with Trivy security scanning, Jira-style ticket integration, and an AI-powered failure analysis layer using a locally hosted Ollama model — no external API keys, no egress cost.
 
 `Kubernetes` `Argo Events` `Argo Workflows` `NATS` `Trivy` `Ollama` `Python`
 
@@ -35,42 +37,30 @@ stack.
 
 ### ⚙️ [GitOps Infrastructure Pipeline](https://github.com/SmartBrisco/gitops-infra-pipeline)
 
-GitHub Actions pipeline provisioning multi-cloud infrastructure via Terraform with
-Kargo progressive delivery. Features OIDC authentication, OPA policy gates, Trivy
-hard-fail on prod, manual approval gates, and three-channel Slack notifications.
-Fully active on AWS across dev and prod; GCP and Azure scaffolded and validated.
+GitHub Actions pipeline that provisions AWS infrastructure on every commit to main using Terraform. OIDC authentication eliminates all long-lived credentials. Multi-stage security gates run Terraform fmt, validate, TFLint, and Trivy IaC scanning before any apply. Three-channel Slack notifications for deployments, alerts, and a complete audit trail.
 
-`GitHub Actions` `Terraform` `Kargo` `AWS` `GCP` `Azure` `OPA` `OIDC` `Trivy`
+`GitHub Actions` `Terraform` `AWS` `OIDC` `Trivy` `TFLint` `OPA` `Slack`
 
 ---
 
 ### 📊 [Platform Observability Stack](https://github.com/SmartBrisco/platform-observability)
 
-Full-stack observability platform deployed on Kubernetes. OpenTelemetry Collector
-receives live OTLP telemetry from the Argo pipeline, routing traces to Jaeger and
-metrics to Prometheus, visualized in Grafana. Isolated in a dedicated monitoring
-namespace with RBAC separation from pipeline infrastructure.
+Full-stack observability platform deployed on Kubernetes. OpenTelemetry Collector receives live telemetry from the Argo pipeline via OTLP gRPC, routing traces to Jaeger and metrics to Prometheus, visualized in Grafana dashboards. All components run in an isolated monitoring namespace with cross-namespace RBAC. Argo workflow execution data flows end to end through the stack.
 
 `OpenTelemetry` `Jaeger` `Prometheus` `Grafana` `Kubernetes` `OTLP`
 
 ---
 
-### 🔩 [Namespace Provisioner](https://github.com/SmartBrisco/namespace-provisioner)
+### 🏗️ [Namespace Provisioner](https://github.com/SmartBrisco/namespace-provisioner)
 
-Kubernetes operator in Go that enforces consistent, policy-compliant namespace
-provisioning across clusters. Declarative `ManagedNamespace` CRD automatically
-provisions namespaces with correct RBAC, resource quotas, and labels. Drift
-correction recreates manually deleted or modified resources on the next reconciliation
-cycle.
+Kubernetes operator built in Go using kubebuilder. Watches for `ManagedNamespace` custom resources and reconciles namespaces with RBAC, resource quotas, and network policies automatically. Self-healing — if configuration drifts from spec, the operator corrects it without intervention. Deployed and managed as part of the IDP bootstrap.
 
-`Go` `Kubernetes` `kubebuilder` `CRD` `RBAC` `Operator pattern`
+`Go` `kubebuilder` `Kubernetes Operators` `CRD` `RBAC`
 
 ---
 
-### 🚀 [Internal Developer Platform](https://github.com/SmartBrisco/Internal-Developer-Platform)
+### 🤖 [ML Platform IDP](https://github.com/SmartBrisco/ml-platform-idp)
 
-One command to spin up the full platform locally in under 5 minutes.
+CI/CD pipeline for containerized ML workloads. Builds and pushes images to AWS ECR with immutable tags, scans with Trivy (warn in dev, hard fail in prod), signs with Cosign via Sigstore for cryptographic integrity, writes tamper-evident audit records to S3 with object lock, and triggers downstream deployment via Argo Events. Designed with GxP-regulated environments in mind.
 
-![Platform up in 299s](screenshots/platform-up.png)
-
-`kind` `make` `kubectl`
+`GitHub Actions` `AWS ECR` `Cosign` `Sigstore` `Helm` `Helmfile` `Django` `OIDC` `GxP`
