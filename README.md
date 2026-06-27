@@ -1,6 +1,9 @@
 # Hi, I'm Brian 👋
 
-9+ years building and owning multi-cloud platforms in HIPAA, SOX, and ISO-regulated environments. Operated as platform architect and senior escalation point across a globally distributed engineering organization spanning 25+ engineers, 4 teams, and 20+ clusters. Drove cross-team platform adoption, set infrastructure standards without formal authority, eliminating $180k in annual cloud waste in the process. Handpicked to integrate infrastructure across organizations during a major acquisition. Built systems that reduced provisioning from 6 hours to 30 minutes enabling engineering teams to ship faster without platform bottlenecks.
+Senior platform engineer and SRE with 12 years building and owning cloud infrastructure across AWS, GCP, and Azure. Most recently at Actian, designed the Terraform modules and CI/CD pipelines that 4 engineering teams built on, cutting cluster provisioning from 6 hours to 30 minutes and eliminating $180k in annual cloud waste.
+
+Before that, spent 4 years as the sole North American SRE at base2Services, owning production across 64 enterprise clients in Healthcare, Finance, Legal, and Retail under HIPAA, SOC2, and ISO 27001. Defended a 99.5% SLO solo across time zones.
+
 
 ---
 
