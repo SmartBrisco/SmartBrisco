@@ -1,12 +1,12 @@
 # Hi, I'm Brian 👋
 
-9+ years building and owning multi-cloud platforms in HIPAA, SOX, and ISO-regulated environments. Operated as platform architect and senior escalation point across a globally distributed engineering organization spanning 25+ engineers, 4 teams, and 20+ clusters. Drove cross-team platform adoption, set infrastructure standards without formal authority, eliminating $180k in annual cloud waste in the process. Handpicked to integrate infrastructure across organizations during a major acquisition. Built systems that reduced provisioning from 6 hours to 30 minutes enabling engineering teams to ship faster without platform bottlenecks.
+Platform engineer and SRE with 12+ years owning cloud infrastructure end-to-end across AWS, GCP, and Azure. Cut cluster provisioning from 6 hours to 30 minutes at Actian by designing Terraform modules adopted org-wide across 4 engineering teams. Eliminated $180k in annual cloud waste and served as senior escalation point for platform design decisions across 30+ engineers. Defended a 99.5% SLO solo across 64 enterprise clients in Healthcare, Financial, Legal, and Retail at base2Services. Compliance background spans SOC2, ISO 27001, and HIPAA.
 
 ---
 
 ## Platform Engineering Portfolio
 
-Six connected projects demonstrating a complete internal developer platform — event-driven pipelines, infrastructure automation, full-stack observability, Kubernetes operators, ML workload delivery, and a single-command bootstrap that ties it all together.
+Five interconnected projects deployable as a single platform — event-driven CI/CD, multi-cloud GitOps, full-stack observability, a production-grade Kubernetes operator, and an ML workload pipeline — bootstrapped with one command.
 
 ![Platform Architecture](screenshots/platform-architecture.svg)
 
